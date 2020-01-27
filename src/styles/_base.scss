@@ -1,0 +1,22 @@
+@import 'reset';
+@import 'variables';
+@import 'typography';
+@import 'mixins';
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $primary-font-family;
+  font-weight: 900;
+}
+
+body {
+  font-family: $primary-font-family;
+}
