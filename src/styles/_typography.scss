@@ -33,3 +33,35 @@
     /* Safari, Android, iOS */
       url('/fonts/montserrat-v14-latin-900.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
+@font-face {
+  font-family: 'Space Grotesk';
+  src: local('Space Grotesk'),
+    url('/fonts/spacegrotesk-regular-webfont.woff2') format('woff2'),
+    url('/fonts/spacegrotesk-regular-webfont.woff') format('woff'),
+    url('/fonts/spacegrotesk-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  src: local('Space Grotesk'),
+    url('/fonts/spacegrotesk-bold-webfont.woff2') format('woff2'),
+    url('/fonts/spacegrotesk-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pyidaungsu';
+  src: local('Pyidaungsu'),
+    url('/fonts/Pyidaungsu-2.1_Regular.woff') format('woff'),
+    url('/fonts/Pyidaungsu-2.1_Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Pyidaungsu';
+  src: local('Pyidaungsu'),
+    url('/fonts/Pyidaungsu-2.1_Bold.woff') format('woff'),
+    url('/fonts/Pyidaungsu-2.1_Bold.ttf') format('ttf');
+  font-weight: bold;
+}

@@ -1,7 +1,10 @@
-$dark: #333333;
-$light: #ffffff;
+$dark: #252525;
+$light: #fff7f7;
 
-$primary-font-family: 'Montserrat', sans-serif, monospace;
+$red: #ff0000;
+
+$primary-font-family: 'Space Grotesk', Pyidaungsu, sans-serif, monospace;
+$heading-font-family: Montserrat, $primary-font-family;
 
 $breakpoints: (
   xs: 576px,
