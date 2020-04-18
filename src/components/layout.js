@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import '@styles/_base.scss'
 
 import SEO from '@components/seo'
@@ -7,6 +8,9 @@ import SEO from '@components/seo'
 const Layout = ({ children }) => {
   return (
     <>
+      <Helmet>
+        <link rel="icon" href="/favicon.svg" />
+      </Helmet>
       <SEO />
       {children}
     </>
@@ -14,7 +18,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
 }
 
 export default Layout

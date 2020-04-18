@@ -1,14 +1,16 @@
-$dark: #252525;
-$light: #fff7f7;
+$a: #180030;
+$b: #f14a57;
+$c: #df0798;
+$d: #106385;
+$e: #72b0c5;
+$f: #fbedd3;
 
-$red: #ff0000;
-
-$primary-font-family: 'Space Grotesk', Pyidaungsu, sans-serif, monospace;
-$heading-font-family: Montserrat, $primary-font-family;
+$primary-font-family: 'Special Elite', sans-serif, monospace;
+$heading-font-family: 'Notable', $primary-font-family;
 
 $breakpoints: (
   xs: 576px,
   sm: 768px,
   md: 992px,
-  lg: 1200px
+  lg: 1200px,
 );

@@ -5,77 +5,19 @@
 
 ::-moz-selection {
   background: none;
-  color: $red;
+  color: white;
 }
 
 ::selection {
   background: none;
-  color: $red;
+  color: white;
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: 120%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $heading-font-family;
-  font-weight: 800;
-}
-
-mark {
-  background: none;
-  color: $red;
+  font-size: 110%;
 }
 
 body {
   font-family: $primary-font-family;
-}
-
-.theme {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background: $light;
-  color: $dark;
-
-  &.dark {
-    background: $dark;
-    color: $light;
-  }
-}
-
-.index-main {
-  width: 60%;
-  height: 90vh;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.social-icon {
-  width: 2rem;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-footer {
-  display: flex;
-  a {
-    text-decoration: none;
-    color: inherit;
-    margin-right: 1rem;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
 }
