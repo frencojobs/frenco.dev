@@ -6,6 +6,10 @@ const App = () => {
   return (
     <Layout>
       <main>
+        <img
+          src="https://images.unsplash.com/photo-1520034475321-cbe63696469a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+          style={{ display: 'none' }}
+        />
         <div className="content">
           <div>
             <h3 className="top">11</h3>
