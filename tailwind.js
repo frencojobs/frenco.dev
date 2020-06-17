@@ -243,8 +243,8 @@ module.exports = {
       default: '1'
     },
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['Inter', 'serif'],
+      sans: ['Plus Jakarta Display', 'sans-serif'],
+      serif: ['Plus Jakarta Display', 'serif'],
       mono: ['Menlo', 'monospace']
     },
     fontSize: {

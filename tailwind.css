@@ -1,0 +1,14 @@
+@tailwind base;
+
+::selection {
+  background: #79ffe1;
+  color: #000000;
+}
+
+a {
+  font-family: 'Walter Turncoat', 'Prodigy Sans', sans-serif;
+}
+
+@tailwind components;
+
+@tailwind utilities;
