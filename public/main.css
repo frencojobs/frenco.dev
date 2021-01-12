@@ -378,7 +378,6 @@ pre {
 button {
   background-color: transparent;
   background-image: none;
-  padding: 0;
 }
 
 /**
@@ -415,7 +414,7 @@ ul {
  */
 
 html {
-  font-family: Plus Jakarta Display, sans-serif; /* 1 */
+  font-family: Epilogue, sans-serif; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -480,19 +479,11 @@ textarea {
   resize: vertical;
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #a0aec0;
-}
-
 input::-moz-placeholder, textarea::-moz-placeholder {
   color: #a0aec0;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #a0aec0;
-}
-
-input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   color: #a0aec0;
 }
 
@@ -606,20 +597,8 @@ video {
 }
 
 a {
-  font-family: 'Walter Turncoat', 'Prodigy Sans', sans-serif;
+  font-weight: 900;
 }
-
-@font-face {
-  font-family: 'Plus Jakarta Display';
-
-  src: url(/fonts/PlusJakartaDisplay-Regular.ttf) format('truetype');
-
-  font-display: swap;
-
-  font-weight: normal;
-}
-
-/*tailwind start components */
 
 .container {
   width: 100%;
@@ -648,8 +627,6 @@ a {
     max-width: 1280px;
   }
 }
-
-/*tailwind end components */
 
 .bg-blog {
   --bg-opacity: 1;
@@ -681,8 +658,16 @@ a {
   border-radius: 0.25rem;
 }
 
+.table {
+  display: table;
+}
+
 .font-sans {
-  font-family: Plus Jakarta Display, sans-serif;
+  font-family: Epilogue, sans-serif;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .text-3xl {
@@ -753,7 +738,131 @@ a {
   width: 100%;
 }
 
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:container {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .sm\:container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .sm\:container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sm\:container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .sm\:container {
+      max-width: 1280px;
+    }
+  }
+}
+
 @media (min-width: 768px) {
+  .md\:container {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .md\:container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .md\:container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .md\:container {
+      max-width: 1280px;
+    }
+  }
+
   .md\:text-4xl {
     font-size: 2.25rem;
   }
@@ -768,5 +877,65 @@ a {
 
   .md\:w-1\/6 {
     width: 16.666667%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:container {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .lg\:container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .lg\:container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .lg\:container {
+      max-width: 1280px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:container {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .xl\:container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .xl\:container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .xl\:container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:container {
+      max-width: 1280px;
+    }
   }
 }

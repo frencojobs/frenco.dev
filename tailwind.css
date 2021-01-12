@@ -6,14 +6,7 @@
 }
 
 a {
-  font-family: 'Walter Turncoat', 'Prodigy Sans', sans-serif;
-}
-
-@font-face {
-  font-family: 'Plus Jakarta Display';
-  src: url(/fonts/PlusJakartaDisplay-Regular.ttf) format('truetype');
-  font-display: swap;
-  font-weight: normal;
+  @apply font-black;
 }
 
 @tailwind components;
