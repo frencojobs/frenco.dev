@@ -1,0 +1,42 @@
+[
+  {
+    "name": "VSCode Notion",
+    "tagline": "Notion, right inside your favorite code editor",
+    "url": "https://github.com/frencojobs/vscode-notion",
+    "cover": "/projects/vscode-notion-cover.png",
+    "themeColor": "",
+    "stack": ["TypeScript", "VSCode"]
+  },
+  [
+    {
+      "name": "Derry",
+      "tagline": "A script manager for Dart",
+      "url": "https://github.com/frencojobs/derry",
+      "themeColor": "",
+      "stack": ["Dart"]
+    },
+    {
+      "name": "Envify",
+      "tagline": "A better/safer way to handle environment variables for Dart/Flutter",
+      "url": "https://github.com/frencojobs/envify",
+      "themeColor": "",
+      "stack": ["Dart", "Flutter"]
+    }
+  ],
+  [
+    {
+      "name": "Interact",
+      "tagline": "A collection of interactive command-line components for Dart",
+      "url": "https://github.com/frencojobs/interact",
+      "themeColor": "",
+      "stack": ["Dart"]
+    },
+    {
+      "name": "Tint",
+      "tagline": "Terminal string styling library for Dart",
+      "url": "https://github.com/frencojobs/tint",
+      "themeColor": "",
+      "stack": ["Dart"]
+    }
+  ]
+]
