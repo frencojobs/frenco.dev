@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<Props> = ({ item, useFlex = false }) => {
               alt={`Cover for ${item.name}`}
               layout="fill"
               objectFit="cover"
-              className="rounded-md"
+              className="rounded-t-md"
             />
           </div>
           <div className="w-full border-t border-gray-300 border-solid" />
