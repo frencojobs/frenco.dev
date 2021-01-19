@@ -8,6 +8,10 @@ interface Project {
   cover?: string
   url: string
   stack: Array<Tech>
+  repo: {
+    owner: string
+    name: string
+  }
 }
 
 interface Experience {

@@ -1,6 +1,7 @@
 import { ExperienceCard } from '@components/ExperienceCard'
 import { ProjectCard } from '@components/ProjectCard'
-import { NextPage } from 'next'
+import { Octokit } from '@octokit/rest'
+import { GetStaticProps, NextPage } from 'next'
 
 import data from '../data.json'
 
@@ -8,7 +9,11 @@ function isProject(v: Project | Array<Project>): v is Project {
   return !(v instanceof Array)
 }
 
-const IndexPage: NextPage = () => {
+type Props = {
+  stars: Array<{ owner: string; name: string; count: number }>
+}
+
+const IndexPage: NextPage<Props> = ({ stars }) => {
   return (
     <main className="w-full p-5 mx-auto font-sans md:max-w-4xl">
       <div className="h-5" />
@@ -47,13 +52,31 @@ const IndexPage: NextPage = () => {
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {(data.projects as Array<Project | Array<Project>>).map((x, idx) =>
             isProject(x) ? (
-              <ProjectCard key={idx} item={x} />
+              <ProjectCard
+                key={idx}
+                item={x}
+                star={
+                  stars.find(
+                    (s) => s.owner === x.repo.owner && s.name === x.repo.name
+                  )?.count
+                }
+              />
             ) : (
               <ul
                 className="flex flex-col items-stretch justify-between gap-4"
                 key={idx}>
                 {x.map((y, idy) => (
-                  <ProjectCard key={idy} item={y} useFlex />
+                  <ProjectCard
+                    key={idy}
+                    item={y}
+                    useFlex
+                    star={
+                      stars.find(
+                        (s) =>
+                          s.owner === y.repo.owner && s.name === y.repo.name
+                      )?.count
+                    }
+                  />
                 ))}
               </ul>
             )
@@ -103,6 +126,28 @@ const IndexPage: NextPage = () => {
       <div className="h-5" />
     </main>
   )
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const octokit = new Octokit()
+  const projects = data.projects
+  const stars = []
+
+  for (const project of projects.flat()) {
+    const res = await octokit.repos.get({
+      owner: project.repo.owner,
+      repo: project.repo.name,
+    })
+
+    const count = res.data.stargazers_count
+    stars.push({ owner: project.repo.owner, name: project.repo.name, count })
+  }
+
+  return {
+    props: {
+      stars,
+    },
+  }
 }
 
 export default IndexPage
