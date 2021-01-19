@@ -67,7 +67,11 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
           <div className="absolute top-0 left-0 flex-col items-end hidden mt-20 transform -rotate-6 -ml-60 lg:flex">
             <h1 className="mb-2 font-serif text-2xl">
               is on{' '}
-              <a className="text-red-600 border-b-2 border-dashed dark:text-red-400">
+              <a
+                className="text-red-600 border-b-2 border-dashed dark:text-red-400 hover:border-red-400"
+                href="https://www.producthunt.com/posts/vscode-notion"
+                rel="noreferrer"
+                target="_blank">
                 Product Hunt
               </a>{' '}
               now!
