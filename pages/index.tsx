@@ -33,7 +33,7 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
   return (
     <main className="w-full p-5 mx-auto font-sans md:max-w-4xl">
       <div className="h-5" />
-      <header className="flex flex-row items-center justify-between">
+      <header className="flex flex-col-reverse items-start md:justify-between md:items-center md:flex-row">
         <div>
           <h1 className="text-3xl font-bold">Frenco</h1>
           <p className="text-lg font-medium text-gray-500 dark:text-gray-300">
@@ -42,7 +42,11 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
         </div>
 
         {mounted && (
-          <DarkModeSwitch checked={isDarkMode} onChange={toggleDarkMode} />
+          <DarkModeSwitch
+            checked={isDarkMode}
+            onChange={toggleDarkMode}
+            className="mb-5 md:mb-0"
+          />
         )}
       </header>
       <div className="h-10" />
