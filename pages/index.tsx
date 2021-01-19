@@ -159,12 +159,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const stars: Array<{ owner: string; name: string; count: number }> = []
 
   for (const project of projects.flat()) {
-    // const res = await octokit.repos.get({
-    //   owner: project.repo.owner,
-    //   repo: project.repo.name,
-    // })
-    // const count = res.data.stargazers_count
-    // stars.push({ owner: project.repo.owner, name: project.repo.name, count })
+    const res = await octokit.repos.get({
+      owner: project.repo.owner,
+      repo: project.repo.name,
+    })
+    const count = res.data.stargazers_count
+    stars.push({ owner: project.repo.owner, name: project.repo.name, count })
   }
 
   return {
