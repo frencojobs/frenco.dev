@@ -43,13 +43,13 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
           </p>
         </div>
 
-        {mounted && (
+        {mounted ? (
           <DarkModeSwitch
             checked={isDarkMode}
             onChange={toggleDarkMode}
             className="mb-5 md:mb-0"
           />
-        )}
+        ) : null}
       </header>
       <div className="h-10" />
       <section className="relative">
@@ -58,19 +58,21 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
         </div>
         <div className="h-5" />
 
-        <div className="absolute top-0 left-0 flex-col items-end hidden mt-20 transform -rotate-6 -ml-60 lg:flex">
-          <h1 className="mb-2 font-serif text-2xl">
-            is on{' '}
-            <a className="text-red-600 border-b-2 border-dashed dark:text-red-400">
-              Product Hunt
-            </a>{' '}
-            now!
-          </h1>
-          <img
-            src={`/arrow-${isDarkMode ? 'light' : 'dark'}.gif`}
-            className="w-20 h-20"
-          />
-        </div>
+        {mounted ? (
+          <div className="absolute top-0 left-0 flex-col items-end hidden mt-20 transform -rotate-6 -ml-60 lg:flex">
+            <h1 className="mb-2 font-serif text-2xl">
+              is on{' '}
+              <a className="text-red-600 border-b-2 border-dashed dark:text-red-400">
+                Product Hunt
+              </a>{' '}
+              now!
+            </h1>
+            <img
+              src={`/arrow-${isDarkMode ? 'light' : 'dark'}.gif`}
+              className="w-20 h-20"
+            />
+          </div>
+        ) : null}
 
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {(data.projects as Array<Project | Array<Project>>).map((x, idx) =>

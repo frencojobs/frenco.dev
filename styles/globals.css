@@ -3,6 +3,7 @@
   font-family: 'Nanum Pen Script';
   font-style: normal;
   font-weight: 400;
+  font-display: block;
   src: local(''),
     url('/fonts/nanum-pen-script-v15-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
