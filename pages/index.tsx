@@ -6,6 +6,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
+import useSound from 'use-sound'
 
 import data from '../data.json'
 
@@ -20,6 +21,7 @@ type Props = {
 const IndexPage: NextPage<Props> = ({ stars }) => {
   const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [tick] = useSound('/audio/tick.mp3', { volume: 0.5 })
 
   useEffect(() => setMounted(true), [])
 
@@ -46,7 +48,10 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
         {mounted ? (
           <DarkModeSwitch
             checked={isDarkMode}
-            onChange={toggleDarkMode}
+            onChange={(x) => {
+              tick()
+              toggleDarkMode(x)
+            }}
             className="mb-5 md:mb-0"
           />
         ) : null}
