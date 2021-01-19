@@ -1,5 +1,6 @@
 import { ExperienceCard } from '@components/ExperienceCard'
 import { ProjectCard } from '@components/ProjectCard'
+import { SEO } from '@components/SEO'
 import { Octokit } from '@octokit/rest'
 import { GetStaticProps, NextPage } from 'next'
 import { useTheme } from 'next-themes'
@@ -32,6 +33,7 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
 
   return (
     <main className="w-full p-5 mx-auto font-sans md:max-w-4xl">
+      <SEO />
       <div className="h-5" />
       <header className="flex flex-col-reverse items-start md:justify-between md:items-center md:flex-row">
         <div>
