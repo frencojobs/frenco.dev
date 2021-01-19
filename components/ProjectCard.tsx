@@ -61,6 +61,7 @@ export const ProjectCard: React.FC<Props> = ({
               {item.stack.map((name) => (
                 <img
                   src={`/icons/${name.toLocaleLowerCase()}.svg`}
+                  alt={name}
                   key={name}
                   className="w-4 h-4 mr-3"
                 />
