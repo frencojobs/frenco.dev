@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 
 type Props = {
@@ -12,10 +13,12 @@ export const ProjectCard: React.FC<Props> = ({
   star,
   useFlex = false,
 }) => {
+  const { resolvedTheme } = useTheme()
+
   return (
     <li
       className={cn(
-        'transition transform border-2 border-gray-300 border-solid rounded-md hover:-translate-y-1 hover:shadow-md',
+        'transition transform border-2 border-gray-300 dark:border-gray-500 border-solid rounded-md hover:-translate-y-1 hover:shadow-md',
         {
           'flex flex-grow': useFlex,
           block: !useFlex,
@@ -32,13 +35,17 @@ export const ProjectCard: React.FC<Props> = ({
               className="rounded-t-md"
             />
           </div>
-          <div className="w-full border-t border-gray-300 border-solid" />
+          <div className="w-full border-t border-gray-300 border-solid dark:border-gray-500" />
         </>
       ) : null}
       <div className="flex flex-col justify-between w-full px-4 py-2">
         <div>
-          <h1 className="text-lg font-bold text-gray-800">{item.name}</h1>
-          <span className="text-gray-600">{item.tagline}</span>
+          <h1 className="text-lg font-bold text-gray-800 dark:text-white">
+            {item.name}
+          </h1>
+          <span className="text-gray-600 dark:text-gray-200">
+            {item.tagline}
+          </span>
         </div>
         <div className="h-3" />
         <div className="flex flex-row items-center justify-between">
@@ -51,11 +58,17 @@ export const ProjectCard: React.FC<Props> = ({
               />
             ))}
           </div>
-
-          <span className="flex flex-row items-center text-sm">
-            <img src="/icons/github-star.svg" className="w-3 mr-1" />
-            {star ? star : null}
-          </span>
+          {star ? (
+            <span className="flex flex-row items-center text-sm">
+              <img
+                src={`/icons/github-star-${
+                  resolvedTheme === 'dark' ? 'light' : 'dark'
+                }.svg`}
+                className="w-3 mr-1"
+              />
+              {star}
+            </span>
+          ) : null}
         </div>
         <div className="h-1" />
       </div>

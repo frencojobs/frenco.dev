@@ -3800,6 +3800,11 @@ neo-async@^2.5.0, neo-async@^2.6.1, neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+next-themes@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.0.10.tgz#86fe5f8a4654416f5d9157993217180174e582b8"
+  integrity sha512-YapL2GVJDooOuGYCYyCywYXRMpulBngG5Qay/HkMK9RyL9xOZ6C3vEgac2dzLWpo3uDVlk+0Qc9XgwGfLHwq/w==
+
 next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
@@ -4655,6 +4660,13 @@ react-spring@^9.0.0-rc.3:
     "@react-spring/three" "9.0.0-rc.3"
     "@react-spring/web" "9.0.0-rc.3"
     "@react-spring/zdog" "9.0.0-rc.3"
+
+react-toggle-dark-mode@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-toggle-dark-mode/-/react-toggle-dark-mode-1.0.3.tgz#44832f03ab166cd425905f332f36110531b5ec26"
+  integrity sha512-4XHhcaAeWQ7b/CeLJEjrZa0wlELGNoHTHhbG8J4iRV8ybIKV2/SpV4e+t4PuVy4Hvcg6I7osXNtp/eZLsckzWA==
+  dependencies:
+    react-spring "^9.0.0-rc.3"
 
 react@16.13.1:
   version "16.13.1"

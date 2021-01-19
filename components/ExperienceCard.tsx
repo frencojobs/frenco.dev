@@ -6,7 +6,7 @@ type Props = {
 
 export const ExperienceCard: React.FC<Props> = ({ item }) => {
   return (
-    <li className="transition transform border-2 border-gray-300 border-solid rounded-md hover:-translate-y-1 hover:shadow-md">
+    <li className="transition transform border-2 border-gray-300 border-solid rounded-md dark:border-gray-500 hover:-translate-y-1 hover:shadow-md">
       {item.cover ? (
         <>
           <div className="relative w-full h-60 md:h-52 lg:h-40">
@@ -18,14 +18,20 @@ export const ExperienceCard: React.FC<Props> = ({ item }) => {
               className="rounded-t-md"
             />
           </div>
-          <div className="w-full border-t border-gray-300 border-solid" />
+          <div className="w-full border-t border-gray-300 border-solid dark:border-gray-500" />
         </>
       ) : null}
       <div className="px-4 py-2">
-        <h1 className="text-lg font-bold text-gray-800">{item.name}</h1>
-        <span className="text-gray-600">{item.position}</span>
+        <h1 className="text-lg font-bold text-gray-800 dark:text-white">
+          {item.name}
+        </h1>
+        <span className="text-gray-600 dark:text-gray-200">
+          {item.position}
+        </span>
         <div className="h-3" />
-        <span className="text-sm text-gray-600">{item.duration}</span>
+        <span className="text-sm text-gray-600 dark:text-gray-200">
+          {item.duration}
+        </span>
         <div className="h-1" />
       </div>
     </li>

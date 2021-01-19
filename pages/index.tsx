@@ -2,6 +2,9 @@ import { ExperienceCard } from '@components/ExperienceCard'
 import { ProjectCard } from '@components/ProjectCard'
 import { Octokit } from '@octokit/rest'
 import { GetStaticProps, NextPage } from 'next'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
+import { DarkModeSwitch } from 'react-toggle-dark-mode'
 
 import data from '../data.json'
 
@@ -14,37 +17,51 @@ type Props = {
 }
 
 const IndexPage: NextPage<Props> = ({ stars }) => {
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  const toggleDarkMode = (checked: boolean) => {
+    const isDarkMode = checked
+    if (isDarkMode) setTheme('dark')
+    else setTheme('light')
+  }
+
+  const isDarkMode = resolvedTheme === 'dark'
+
   return (
     <main className="w-full p-5 mx-auto font-sans md:max-w-4xl">
       <div className="h-5" />
-      <header>
-        <h1 className="text-3xl font-bold">Frenco</h1>
-        <p className="text-lg font-medium text-gray-500">
-          Software Engineer, Student at UIT
-        </p>
+      <header className="flex flex-row items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">Frenco</h1>
+          <p className="text-lg font-medium text-gray-500 dark:text-gray-300">
+            Software Engineer, Student at UIT
+          </p>
+        </div>
+
+        {mounted && (
+          <DarkModeSwitch checked={isDarkMode} onChange={toggleDarkMode} />
+        )}
       </header>
       <div className="h-10" />
       <section className="relative">
         <div className="flex flex-row items-center justify-between">
           <h1 className="text-2xl font-bold">Projects</h1>
-
-          {/* <h1 className="font-serif text-3xl">
-            GitHub
-            <img src="/arrow-dark.gif" className="transform -rotate-45 w-21" />
-          </h1> */}
         </div>
         <div className="h-5" />
 
         <div className="absolute top-0 left-0 flex-col items-center hidden mt-20 transform -rotate-45 -ml-60 lg:flex">
           <h1 className="mb-5 font-serif text-3xl">
             is on{' '}
-            <a className="text-red-600 border-b-2 border-dashed">
+            <a className="text-red-600 border-b-2 border-dashed dark:text-red-400">
               Product Hunt
             </a>{' '}
             now!
           </h1>
           <img
-            src="/arrow-dark.gif"
+            src={`/arrow-${isDarkMode ? 'light' : 'dark'}.gif`}
             className="w-20 h-20 transform rotate-45"
           />
         </div>
@@ -100,7 +117,7 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
         <div className="h-5" />
         <span className="text-lg">
           You can always drop me a quick mail to{' '}
-          <span className="font-bold text-blue-800 underline">
+          <span className="font-bold text-blue-600 underline dark:text-blue-400">
             hey@frenco.dev
           </span>{' '}
           if you&apos;re interested in working with me. Also check out my other
@@ -116,7 +133,7 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
                 href={link.url}
                 rel="noreferrer"
                 target="_blank"
-                className="font-bold text-blue-600 underline">
+                className="font-bold text-blue-600 underline dark:text-blue-400">
                 {link.name}
               </a>
             </li>
@@ -131,16 +148,15 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const octokit = new Octokit()
   const projects = data.projects
-  const stars = []
+  const stars: Array<{ owner: string; name: string; count: number }> = []
 
   for (const project of projects.flat()) {
-    const res = await octokit.repos.get({
-      owner: project.repo.owner,
-      repo: project.repo.name,
-    })
-
-    const count = res.data.stargazers_count
-    stars.push({ owner: project.repo.owner, name: project.repo.name, count })
+    // const res = await octokit.repos.get({
+    //   owner: project.repo.owner,
+    //   repo: project.repo.name,
+    // })
+    // const count = res.data.stargazers_count
+    // stars.push({ owner: project.repo.owner, name: project.repo.name, count })
   }
 
   return {

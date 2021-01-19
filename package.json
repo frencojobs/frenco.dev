@@ -25,10 +25,12 @@
     "autoprefixer": "^10.0.2",
     "classnames": "^2.2.6",
     "next": "^10.0.2",
+    "next-themes": "^0.0.10",
     "postcss": "^8.1.7",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-spring": "^9.0.0-rc.3",
+    "react-toggle-dark-mode": "^1.0.3",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
