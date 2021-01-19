@@ -24,7 +24,14 @@ export const ProjectCard: React.FC<Props> = ({
           block: !useFlex,
         }
       )}>
-      <a href={item.url} rel="noreferrer" target="_blank">
+      <a
+        href={item.url}
+        rel="noreferrer"
+        target="_blank"
+        className={cn({
+          'flex flex-grow': useFlex,
+          block: !useFlex,
+        })}>
         {item.cover ? (
           <>
             <div className="relative w-full h-60 md:h-52 lg:h-40">
