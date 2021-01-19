@@ -56,8 +56,8 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
         </div>
         <div className="h-5" />
 
-        <div className="absolute top-0 left-0 flex-col items-center hidden mt-20 transform -rotate-45 -ml-60 lg:flex">
-          <h1 className="mb-5 font-serif text-3xl">
+        <div className="absolute top-0 left-0 flex-col items-end hidden mt-20 transform -rotate-6 -ml-60 lg:flex">
+          <h1 className="mb-2 font-serif text-2xl">
             is on{' '}
             <a className="text-red-600 border-b-2 border-dashed dark:text-red-400">
               Product Hunt
@@ -66,7 +66,7 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
           </h1>
           <img
             src={`/arrow-${isDarkMode ? 'light' : 'dark'}.gif`}
-            className="w-20 h-20 transform rotate-45"
+            className="w-20 h-20"
           />
         </div>
 
@@ -130,19 +130,23 @@ const IndexPage: NextPage<Props> = ({ stars }) => {
 
         <div className="h-10" />
 
-        <ul className="flex flex-row flex-wrap items-center justify-between max-w-xl">
-          {data.links.map((link, id) => (
-            <li key={id}>
-              <a
-                href={link.url}
-                rel="noreferrer"
-                target="_blank"
-                className="font-bold text-blue-600 underline dark:text-blue-400">
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <footer className="flex flex-col items-start md:flex-row md:items-center md:justify-between">
+          <ul className="flex flex-row flex-wrap items-center justify-between w-full max-w-xl">
+            {data.links.map((link, id) => (
+              <li key={id}>
+                <a
+                  href={link.url}
+                  rel="noreferrer"
+                  target="_blank"
+                  className="font-bold text-blue-600 underline dark:text-blue-400">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <span className="mt-5 text-sm md:mt-0">Frenco &copy; 2021</span>
+        </footer>
       </section>
       <div className="h-5" />
     </main>
